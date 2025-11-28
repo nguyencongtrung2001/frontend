@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Custom breakpoints for very large screens */
+@custom-media --3xl (min-width: 1920px);
+@custom-media --4xl (min-width: 2560px);
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -43,6 +47,10 @@
   --radius-xl: calc(var(--radius) + 4px);
   --font-family-sans: var(--font-roboto);
   --font-family-poppins: var(--font-poppins);
+  
+  /* Custom breakpoints */
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
 }
 
 :root {
@@ -121,4 +129,24 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom utilities for large screens */
+@layer utilities {
+  .container-3xl {
+    max-width: 1920px;
+  }
+  
+  .container-4xl {
+    max-width: 2560px;
+  }
+}
+
+/* Media queries for custom breakpoints - for use with @media */
+@media (--3xl) {
+  /* Styles for screens >= 1920px */
+}
+
+@media (--4xl) {
+  /* Styles for screens >= 2560px */
 }
